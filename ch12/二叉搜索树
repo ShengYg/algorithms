@@ -1,0 +1,12 @@
+二叉搜索树
+	x.left.key <= x.key <= x.right.key
+	先序、中序、后序遍历：θ(n)
+	遍历方法：1、递归；2、辅助堆栈；3、利用父节点和指针比较
+查询二叉搜索树
+	search,maximum,minimum,successor,predecessor:O(h)
+	while迭代比函数递归更有效
+插入、删除
+	O(h)
+随机构建二叉搜索树
+	期望高度为O(lgn)
+	
