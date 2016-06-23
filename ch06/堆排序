@@ -1,0 +1,12 @@
+堆性质
+	除最底层外，树是完全充满的，而且是从左向右填充。
+	最大堆: x.p.key >= x.key 用于堆排序
+	最小堆: x.p.key <= x.key 用于构造优先队列
+维护堆性质
+	MAX_HEAPIFY O(h)
+建堆
+	BUILD_MAX_HEAP O(n)
+堆排序算法
+	HEAPSORT O(nlgn)
+优先队列
+	O(lgn)
