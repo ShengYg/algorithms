@@ -146,9 +146,8 @@ void Mat_Graph::BFS(int s){
 	}
 }
 
-void Mat_Graph::Print_Path(int s, int v)
-{
-BFS(s);
+void Mat_Graph::Print_Path(int s, int v){
+	BFS(s);
 	if(v == s)
 		cout << s<<' ';
 	else{
