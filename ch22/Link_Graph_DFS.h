@@ -32,8 +32,7 @@ struct Vertex
 	Edge *head;//指向以该顶点为起点的下一条边
 	Vertex():color(WHITE),p(0),head(NULL){};
 };
-class Link_Graph
-{
+class Link_Graph{
 public:
 	int time;
 	int n;
@@ -163,8 +162,7 @@ void Link_Graph::DFS_Visit(int u)
 	V[u].f = time;
 }
 
-void Link_Graph::Print_Vertex_Time()
-{
+void Link_Graph::Print_Vertex_Time(){
 	int i;
 	for(i = 1; i <= n; i++)  
     {  
@@ -174,8 +172,7 @@ void Link_Graph::Print_Vertex_Time()
     }  
 }
 
-void Link_Graph::Print_Edge_Type()
-{
+void Link_Graph::Print_Edge_Type(){
 	int i;
 	for(i = 1; i <= n; i++)  
     {  
