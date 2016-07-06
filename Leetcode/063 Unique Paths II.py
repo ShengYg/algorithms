@@ -37,3 +37,25 @@ class Solution(object):
         return path[m-1][n-1]
 
 ### method 2
+        def uniquePathsWithObstacles(self, obstacleGrid):
+        """
+        :type obstacleGrid: List[List[int]]
+        :rtype: int
+        """
+        
+        m = len(obstacleGrid)
+        n = len(obstacleGrid[0])
+        
+        for i in range(m):
+            for j in range(n):
+                if obstacleGrid[i][j] == 1:
+                    obstacleGrid[i][j] = 0
+                elif i == 0 and j == 0:
+                    obstacleGrid[i][j] = 1
+                elif i == 0:
+                    obstacleGrid[i][j] = obstacleGrid[i][j - 1] * 1
+                elif j == 0:
+                    obstacleGrid[i][j] = obstacleGrid[i - 1][j] * 1
+                else:
+                    obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1]
+        return obstacleGrid[m-1][n-1]
