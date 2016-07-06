@@ -37,7 +37,7 @@ class Solution(object):
         return path[m-1][n-1]
 
 ### method 2
-        def uniquePathsWithObstacles(self, obstacleGrid):
+    def uniquePathsWithObstacles(self, obstacleGrid):
         """
         :type obstacleGrid: List[List[int]]
         :rtype: int
