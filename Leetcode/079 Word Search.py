@@ -22,9 +22,8 @@ class Solution(object):
             return False
         elif board[i][j] != word[idx]:
             return False
-        a = board[i][j]
         board[i][j] = '#'
         exist = self.exist_word(board, word, i, j + 1, idx + 1) or self.exist_word(board, word, i, j - 1, idx + 1) \
         or self.exist_word(board, word, i - 1, j, idx + 1) or self.exist_word(board, word, i + 1, j, idx + 1)
-        board[i][j] = a
+        board[i][j] = word[idx]
         return exist
