@@ -1,4 +1,8 @@
 class Solution(object):
+	#DP
+	#=======#===========#===============#===============#=============
+	#		buy1		sell1			buy2			sell2
+	#					buy1+price		sell1-price		buy2+price
     def maxProfit(self, prices):
         """
         :type prices: List[int]
@@ -12,3 +16,6 @@ class Solution(object):
             buy2 = max(buy2, sell1 - prices[i])
             sell2 = max(sell2, buy2 + prices[i])
         return sell2
+
+
+
