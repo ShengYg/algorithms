@@ -25,7 +25,7 @@ class Solution(object):
         
         lo, hi = 0, len(nums) - 1
         while lo < hi:
-            mid = lo + (hi - lo)/2		#more faster
+            mid = lo + (hi - lo)/2		#faster
             if nums[mid] < nums[hi]:
                 hi = mid
             elif nums[mid] > nums[hi]:
