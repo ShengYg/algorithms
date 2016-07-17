@@ -18,3 +18,21 @@ class Solution(object):
 
         return maxLength
 
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        start = maxLength = 0
+        usedChar = {}
+        
+        for i, v in enumerate(s):		#faster
+            if v in usedChar and start <= usedChar[v]:
+                start = usedChar[v] + 1
+            else:
+                maxLength = max(maxLength, i - start + 1)
+
+            usedChar[v] = i
+
+        return maxLength
