@@ -22,7 +22,7 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        hashmap={}
+        hashmap = {}
         for i in strs:
             key = ''.join(sorted(i))
             hashmap[key] = hashmap.get(key, []) + [i]
