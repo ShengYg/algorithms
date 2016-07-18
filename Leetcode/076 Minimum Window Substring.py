@@ -51,5 +51,38 @@ class Solution(object):
                             break
                 else:
                     count -= 1
+        return s[min_start : min_end+1]
 
+
+class Solution(object):
+    def minWindow(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: str
+        """
+        required, min_len = [0] * 256, 2147483647
+        
+        for ch in t:
+            required[ord(ch)] += 1
+        start = min_start = 0
+        min_end, count = -len(s) - 1, len(required) - required.count(0)
+        
+        for i in xrange(len(s)):
+            index = ord(s[i])
+            required[index] -= 1
+            if required[index] == 0:
+                if count == 1:
+                    for j in xrange(start, i+1):
+                        index = ord(s[j])
+                        required[index] += 1
+                        if required[index] > 0:
+                            length = i - j
+                            if length < min_len:
+                                min_len = length
+                                min_start, min_end = j, i
+                            start = j + 1
+                            break
+                else:
+                    count -= 1
         return s[min_start : min_end+1]
