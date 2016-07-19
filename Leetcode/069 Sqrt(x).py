@@ -15,3 +15,29 @@ class Solution(object):
             return self.sqx(x, s, m - 1)
         else:
             return self.sqx(x, m + 1, e)
+
+
+class Solution(object):
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        r = x
+        while r * r > x:
+            r = (r + x / r) / 2
+        return r
+
+
+class Solution(object):
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        res = 0
+        for i in range(15, -1, -1):
+            n = 1 << i
+            if (res + n) * (res + n) <= x:
+                res += n
+        return res
