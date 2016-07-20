@@ -18,3 +18,21 @@ class Solution(object):
             if isPrime[i]:
                 count += 1
         return count
+
+
+
+class Solution(object):
+    def countPrimes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 3:
+            return 0
+        isPrime = [True] * n
+        i = 2
+        while i * i < n:
+            if isPrime[i]:
+                isPrime[i**2: n: i] = [False] * len(isPrime[i * i: n: i])
+            i += 1
+        return sum(isPrime) - 2
