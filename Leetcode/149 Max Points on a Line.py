@@ -16,6 +16,7 @@ class Solution(object):
         if L < 2:
             return 1
         result = 0
+		points = sorted(points, key = lambda i:i.x)	#better
         for i in range(L):
             myMap, verticle, duplicate = {}, 0 ,0
             for j in range(i+1,L):
