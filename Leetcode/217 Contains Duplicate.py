@@ -10,3 +10,12 @@ class Solution(object):
                 return True
             nummap[i] = nummap.get(i,0) + 1
         return False
+
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        return len(set(nums)) < len(nums)
