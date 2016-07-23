@@ -18,10 +18,9 @@ class Solution(object):
         nodemap = {}
         head = result = ListNode(0)
         for i in range(len(lists)):
-            node = lists[i]
-            if node:
-                num = node.val
-                node = node.next
+            if lists[i]:
+                num = lists[i].val
+                lists[i] = lists[i].next
                 heap.append(num)
                 nodemap[num] = nodemap.get(num, []) + [i]
         heapq.heapify(heap)
@@ -31,15 +30,16 @@ class Solution(object):
             result.next = ListNode(num)
             result = result.next
             i = nodemap[num].pop()
-            node = lists[i]
-            if node:
-                heapq.heappush(heap, node.val)
-                nodemap[node.val] = nodemap.get(node.val, []) + [i]
-                node = node.next
+            if lists[i]:
+                heapq.heappush(heap, lists[i].val)
+                nodemap[lists[i].val] = nodemap.get(lists[i].val, []) + [i]
+                lists[i] = lists[i].next
         if not heap:
             return []
         num = heapq.heappop(heap)
         result.next = ListNode(num)
         result = result.next
+        result.next = lists[nodemap[num].pop()]
+        return head.next
         result.next = lists[nodemap[num].pop()]
         return head.next
