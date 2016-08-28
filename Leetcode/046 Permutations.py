@@ -25,3 +25,8 @@ class Solution(object):
                 for p in self.permute(nums[:i] + nums[i+1:])] or [[]]
 
 
+class Solution(object):
+    def permute(self, nums):
+        return map(list, itertools.permutations(nums))
+
+
