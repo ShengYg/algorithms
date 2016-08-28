@@ -17,3 +17,11 @@ class Solution(object):
             self.Recursive(nums[:], begin + 1, result)
             nums[begin], nums[i] = nums[i], nums[begin]
 
+
+class Solution(object):
+    def permute(self, nums):
+        return [[n] + p
+                for i, n in enumerate(nums)
+                for p in self.permute(nums[:i] + nums[i+1:])] or [[]]
+
+
