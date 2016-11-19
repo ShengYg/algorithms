@@ -19,3 +19,21 @@ class Solution(object):
                 else:
                     out[i][j] = min(out[i - 1][j - 1] + 1, out[i][j - 1] + 1, out[i - 1][j] + 1)
         return out[m][n]
+
+class Solution(object):
+    def minDistance(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: int
+        """
+        m, n = len(word1) + 1, len(word2) + 1
+        out = [[0 for _ in range(n)] for _ in range(m)]
+        for i in range(1, m):
+            out[i][0] = i
+        for j in range(1, n):
+            out[0][j] = j
+        for i in range(1, m):
+            for j in range(1, n):
+                out[i][j] = min(out[i - 1][j - 1] + (word1[i - 1] != word2[j - 1]), out[i][j - 1] + 1, out[i - 1][j] + 1)
+        return out[-1][-1]
