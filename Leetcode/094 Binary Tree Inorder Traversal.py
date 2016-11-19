@@ -40,3 +40,28 @@ class Solution(object):
                 nodes.append(curNode.val)
                 curNode = curNode.right
         return nodes
+
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        nodes, toVisit = [], []
+        curNode = root
+        while curNode:
+            if curNode.left:
+                predecessor = curNode.left
+                while predecessor.right and predecessor.right != curNode:
+                    predecessor = predecessor.right
+                if not predecessor.right:
+                    predecessor.right = curNode
+                    curNode = curNode.left
+                else:
+                    predecessor.right = None
+                    nodes.append(curNode.val)
+                    curNode = curNode.right
+            else:
+                nodes.append(curNode.val)
+                curNode = curNode.right
+        return nodes
