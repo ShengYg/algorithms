@@ -48,3 +48,30 @@ class Solution(object):
                     self.second = curNode
                 self.pre = curNode
                 curNode = curNode.right
+
+    ## morris    
+    def Traversal(self, root):
+        curNode = root
+        while curNode:
+            if curNode.left:
+                predecessor = curNode.left
+                while predecessor.right and predecessor.right != curNode:
+                    predecessor = predecessor.right
+                if not predecessor.right:
+                    predecessor.right = curNode
+                    curNode = curNode.left
+                else:
+                    predecessor.right = None
+                    if not self.first and self.pre.val > curNode.val:
+                        self.first = self.pre
+                    if self.first and self.pre.val > curNode.val:
+                        self.second = curNode
+                    self.pre = curNode
+                    curNode = curNode.right
+            else:
+                if not self.first and self.pre.val > curNode.val:
+                    self.first = self.pre
+                if self.first and self.pre.val > curNode.val:
+                    self.second = curNode
+                self.pre = curNode
+                curNode = curNode.right
