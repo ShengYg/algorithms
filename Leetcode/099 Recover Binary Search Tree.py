@@ -20,6 +20,7 @@ class Solution(object):
         self.first.val, self.second.val = self.second.val, self.first.val
         return
     
+    ## recursive
     def Traversal(self, root):
         if not root:
             return
@@ -30,3 +31,20 @@ class Solution(object):
             self.second = root
         self.pre = root
         self.Traversal(root.right
+
+    ## iterative
+    def Traversal(self, root):
+        toVisit = []
+        curNode = root
+        while curNode or len(toVisit) != 0:
+            if curNode:
+                toVisit.append(curNode)
+                curNode = curNode.left
+            else:
+                curNode = toVisit.pop()
+                if not self.first and self.pre.val > curNode.val:
+                    self.first = self.pre
+                if self.first and self.pre.val > curNode.val:
+                    self.second = curNode
+                self.pre = curNode
+                curNode = curNode.right
