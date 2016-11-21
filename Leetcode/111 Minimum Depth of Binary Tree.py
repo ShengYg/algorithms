@@ -23,3 +23,17 @@ class Solution(object):
         if left == float('inf') and right == float('inf'):
             return 1
         return min(left, right) + 1
+
+class Solution(object):
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        if not root.left:
+            return self.minDepth(root.right) + 1
+        if not root.right:
+            return self.minDepth(root.left) + 1
+        return min(self.minDepth(root.right), self.minDepth(root.left)) + 1
