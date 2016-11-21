@@ -26,3 +26,22 @@ class Solution:
                 pre = dummy
                 root = dummy.next
                 dummy.next = None
+
+class Solution:
+    # @param root, a tree link node
+    # @return nothing
+    def connect(self, root):
+        if not root:
+            return
+        while root:
+            dummy = TreeLinkNode(0)
+            pre = dummy
+            while root:
+                if root.left:
+                    pre.next = root.left
+                    pre = pre.next
+                if root.right:
+                    pre.next = root.right
+                    pre = pre.next
+                root = root.next
+            root = dummy.next
