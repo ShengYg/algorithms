@@ -39,3 +39,28 @@ class Solution(object):
                 curNode = toVisit.pop()
                 curNode = curNode.right
         return nodes
+
+class Solution(object):
+    def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        nodes, toVisit = [], []
+        curNode = root
+        while curNode:
+            if curNode.left:
+                predecessor = curNode.left
+                while predecessor.right and predecessor.right != curNode:
+                    predecessor = predecessor.right
+                if not predecessor.right:
+                    predecessor.right = curNode
+                    nodes.append(curNode.val)
+                    curNode = curNode.left
+                else:
+                    predecessor.right = None
+                    curNode = curNode.right
+            else:
+                nodes.append(curNode.val)
+                curNode = curNode.right
+        return nodes
