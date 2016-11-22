@@ -38,3 +38,32 @@ class BSTIterator(object):
 # Your BSTIterator will be called like this:
 # i, v = BSTIterator(root), []
 # while i.hasNext(): v.append(i.next())
+
+class BSTIterator(object):
+    def __init__(self, root):
+        """
+        :type root: TreeNode
+        """
+        self._stack = []
+        self.pushAll(root)
+    
+    def pushAll(self, root):
+        while root:
+            self._stack.append(root)
+            root = root.left
+                
+    def hasNext(self):
+        """
+        :rtype: bool
+        """
+        if self._stack:
+            return True
+        return False
+
+    def next(self):
+        """
+        :rtype: int
+        """
+        node = self._stack.pop()
+        self.pushAll(node.right)
+        return node.val
