@@ -21,3 +21,21 @@ class Solution(object):
         nodes.append(root.val)
         self.preorder(root.left, nodes)
         self.preorder(root.right, nodes)
+
+class Solution(object):
+    def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        nodes, toVisit = [], []
+        curNode = root
+        while curNode or len(toVisit) != 0:
+            if curNode:
+                nodes.append(curNode.val)
+                toVisit.append(curNode)
+                curNode = curNode.left
+            else:
+                curNode = toVisit.pop()
+                curNode = curNode.right
+        return nodes
