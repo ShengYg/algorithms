@@ -13,3 +13,11 @@ class Solution(object):
             if nums[i] > 0:
                 out.append(i + 1)
         return out
+
+class Solution(object):
+    def findDisappearedNumbers(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        return list(set(range(1, len(nums)+1)) - set(nums))
