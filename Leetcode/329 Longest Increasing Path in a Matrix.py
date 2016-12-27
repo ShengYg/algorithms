@@ -30,3 +30,32 @@ class Solution(object):
             maxlen = max(maxlen, length)
         cache[i][j] = maxlen
         return maxlen
+
+
+class Solution(object):
+    def longestIncreasingPath(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: int
+        """
+        def dfs(i, j):
+            if cache[i][j]:
+                return cache[i][j]
+            val = matrix[i][j]
+            cache[i][j] = 1 + max(
+                dfs(i - 1, j) if i and val > matrix[i - 1][j] else 0,
+                dfs(i + 1, j) if i < m - 1 and val > matrix[i + 1][j] else 0,
+                dfs(i, j - 1) if j and val > matrix[i][j - 1] else 0,
+                dfs(i, j + 1) if j < n - 1 and val > matrix[i][j + 1] else 0)
+            return cache[i][j]
+
+        if not len(matrix):
+            return 0
+        m, n = len(matrix), len(matrix[0])
+        cache = [[0 for _ in range(n)]for _ in range(m)]
+        maxlen = 1
+        for i in range(m):
+            for j in range(n):
+                length = dfs(i, j)
+                maxlen = max(maxlen, length)
+        return maxlen
