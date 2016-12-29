@@ -17,3 +17,20 @@ class Solution(object):
             for i in range(2, len(nums)):
                 out[i] = max(nums[i] + out[i - 2], out[i - 1])
             return out[-1]
+
+
+
+class Solution(object):
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        out = [0, 0]
+        for i in range(len(nums)):
+            a, b = out[0], out[1]
+            out[0] = b + nums[i]
+            out[1] = max(a, b)
+        return max(out)
