@@ -7,8 +7,7 @@ public class Solution {
             else
                 cnt.put(item, 1);
         }
-        Integer[] nums_b = Arrays.stream(nums).boxed().toArray(Integer[]::new);
-        HashSet<Integer> set = new HashSet<Integer>(Arrays.asList(nums_b));
+        HashSet<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toCollection(HashSet::new));
         for(int num: set){
             int a = cnt.getOrDefault(num - 2, 0);
             int b = cnt.getOrDefault(num - 1, 0);
