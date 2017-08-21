@@ -1,7 +1,3 @@
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
 class Solution(object):
     def imageSmoother(self, M):
         """
