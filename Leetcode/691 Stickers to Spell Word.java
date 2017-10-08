@@ -26,9 +26,8 @@ class Solution {
             String s = sb.toString();
             if(s.length() != target.length()){
                 int tmp = helper(dp, mp, s);
-                if(tmp != -1){
+                if(tmp != -1)
                     ans = Math.min(ans, 1 + tmp);
-                }
             }
         }
         dp.put(target, ans == Integer.MAX_VALUE ? -1: ans);
